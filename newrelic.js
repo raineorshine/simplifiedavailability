@@ -8,11 +8,11 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name : ['APP_NAME'],
+  app_name : ['Wakefulness Institute'],
   /**
    * Your New Relic license key.
    */
-  license_key : 'LICENCE_KEY',
+  license_key : 'c2230f68a719a8ce35a6957078b51c2a779656be',
   logging : {
     /**
      * Level at which to log. 'trace' is most useful to New Relic when diagnosing
