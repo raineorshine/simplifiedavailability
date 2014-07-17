@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "body-parser": "^1",
+    "express": "^4",
+    "google-calendar": "^1",
+    "jade": "^1",
+    "newrelic": "^1",
+    "passport": "^0.2",
+    "passport-google-oauth": "^0.1"
+  }
+}
