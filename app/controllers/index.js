@@ -1,5 +1,7 @@
 (function() {
-  module.exports = {
+  var controller;
+
+  controller = {
     index: function(req, res) {
       return res.render('index', {
         seed: {
@@ -8,5 +10,7 @@
       });
     }
   };
+
+  module.exports = controller;
 
 }).call(this);
