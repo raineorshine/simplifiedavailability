@@ -1,7 +1,9 @@
 (function() {
-  var GoogleStrategy, app, bodyParser, config, express, gcal, indexController, passport, server;
+  var GoogleStrategy, app, bodyParser, config, express, gcal, indexController, passport, server, session;
 
   express = require('express');
+
+  session = require('express-session');
 
   bodyParser = require('body-parser');
 
@@ -27,6 +29,10 @@
 
   app.use(bodyParser());
 
+  app.use(session({
+    secret: config.sessionSecret
+  }));
+
   app.use(passport.initialize());
 
   passport.use(new GoogleStrategy({
@@ -35,9 +41,7 @@
     callbackURL: "http://localhost:" + 4372 + "/auth/callback",
     scope: ['openid', 'email', 'https://www.googleapis.com/auth/calendar']
   }, function(accessToken, refreshToken, profile, done) {
-    var google_calendar;
-    google_calendar = new gcal.GoogleCalendar(accessToken);
-    console.log('profile', profile);
+    profile.accessToken = accessToken;
     return done(null, profile);
   }));
 
@@ -53,7 +57,7 @@
     return res.redirect("/");
   });
 
-  app.get('/', indexController.index);
+  indexController(app);
 
   server = app.listen(config.port, function() {
     return console.log('Express server listening on port ' + server.address().port);
