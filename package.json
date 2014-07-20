@@ -1,11 +1,57 @@
 {
+  "name": "simplifiedavailability",
+  "version": "0.0.0",
+  "description": "Generates a simple text list of your availability from your Google Calendar",
+  "license": "MIT",
+  "repository": "metaraine/simplifiedavailability",
+  "author": {
+    "name": "Raine Lourie",
+    "email": "raine@collegecoding.com",
+    "url": "https://github.com/metaraine"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha",
+    "browser": "browserify -s $npm_package_name -o browser.js ."
+  },
   "dependencies": {
-    "body-parser": "^1",
-    "express": "^4",
-    "google-calendar": "^1",
-    "jade": "^1",
-    "newrelic": "^1",
-    "passport": "^0.2",
-    "passport-google-oauth": "^0.1"
+    "express": "~4",
+    "jade": "~1",
+    "body-parser": "~1",
+    "newrelic": "~1"
+  },
+  "keywords": [
+    "calendar"
+  ],
+  "devDependencies": {
+    "mocha": "*",
+    "coffee-script": "~1",
+    "insist": "*",
+    "browserify": "^4",
+    "gulp": "~3",
+    "gulp-rename": "~1",
+    "gulp-ruby-sass": "~0.3",
+    "gulp-livereload": "~1",
+    "gulp-cache": "~0.1",
+    "gulp-clean": "~0.2",
+    "gulp-concat": "~2",
+    "gulp-jshint": "~1",
+    "gulp-minify-css": "~0.3",
+    "gulp-notify": "~0.4",
+    "gulp-imagemin": "~0.1",
+    "gulp-uglify": "~0.2",
+    "gulp-autoprefixer": "0.0.6",
+    "gulp-sass": "~0.6",
+    "gulp-util": "~2",
+    "gulp-embedlr": "~0.5",
+    "gulp-coffee": "~1",
+    "gulp-open": "~0.2",
+    "gulp-inject": "~0.2",
+    "gulp-inject": "~0.2",
+    "tiny-lr": "0.0.5",
+    "imagemin": "~0.1",
+    "run-sequence": "~0.3"
   }
 }

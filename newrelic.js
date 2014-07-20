@@ -8,7 +8,7 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name : ['Wakefulness Institute'],
+  app_name : ['Simplified Availability'],
   /**
    * Your New Relic license key.
    */
