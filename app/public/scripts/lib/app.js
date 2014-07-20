@@ -1,4 +1,4 @@
 (function() {
-  angular.module('simpleAvail', ['btford.socket-io']);
+  angular.module('simpleAvail', ['btford.socket-io', 'firebase']);
 
 }).call(this);

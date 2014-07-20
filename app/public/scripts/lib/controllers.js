@@ -4,10 +4,15 @@
       return socketFactory();
     }
   ]).controller('TestCtrl', [
-    '$scope', 'HourSpan', 'socket', function($scope, HourSpan, socket) {
-      $scope.name = 'Raine';
-      return socket.on('someEvent', function() {
+    '$scope', 'HourSpan', 'socket', '$firebase', function($scope, HourSpan, socket, $firebase) {
+      var testRef;
+      socket.on('someEvent', function() {
         return console.log('an event occurred');
+      });
+      testRef = new Firebase('https://intense-fire-5360.firebaseio.com/test/name');
+      return testRef.on('value', function(snapshot) {
+        console.log(snapshot.val());
+        return $scope.name = snapshot.val();
       });
     }
   ]);
