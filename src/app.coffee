@@ -22,7 +22,7 @@ app.use passport.initialize()
 passport.use new GoogleStrategy(
 	clientID: 		config.consumerKey
 	clientSecret: config.consumerSecret
-	callbackURL: 	"http://localhost:#{4372}/auth/callback"
+	callbackURL: 	"http://localhost:#{config.port}/auth/callback"
 	scope: ['openid', 'email', 'https://www.googleapis.com/auth/calendar']
 , (accessToken, refreshToken, profile, done) ->
 	profile.accessToken = accessToken
