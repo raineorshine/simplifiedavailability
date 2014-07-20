@@ -1,4 +1,6 @@
-simpleAvail = angular.module 'simpleAvail', []
+angular.module('simpleAvail')
 
-simpleAvail.controller 'TestCtrl', ($scope)->
-  $scope.name = 'Raine'
+	.controller 'TestCtrl', ['$scope', 'HourSpan', ($scope, HourSpan)->
+	  $scope.name = 'Raine'
+	  console.log HourSpan
+	]

@@ -1,10 +1,9 @@
 (function() {
-  var simpleAvail;
-
-  simpleAvail = angular.module('simpleAvail', []);
-
-  simpleAvail.controller('TestCtrl', function($scope) {
-    return $scope.name = 'Raine';
-  });
+  angular.module('simpleAvail').controller('TestCtrl', [
+    '$scope', 'HourSpan', function($scope, HourSpan) {
+      $scope.name = 'Raine';
+      return console.log(HourSpan);
+    }
+  ]);
 
 }).call(this);
