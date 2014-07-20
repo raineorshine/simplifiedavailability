@@ -17,7 +17,7 @@ https://developers.google.com/google-apps/calendar/v3/push
 http://stackoverflow.com/questions/19648611/setup-push-notifications-for-google-calendar-api-using-php-client
 
 Angular + Socket.io
-http://www.html5rocks.com/en/tutorials/frameworks/angular-websockets/
+https://github.com/btford/angular-socket-io
 
 Using the google-calendar module:
 https://github.com/wanasit/google-calendar/blob/master/example/list-example.js
