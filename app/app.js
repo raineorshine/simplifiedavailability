@@ -62,7 +62,12 @@
   indexController(app);
 
   server = app.listen(config.port, function() {
-    return console.log('Express server listening on port ' + server.address().port);
+    var io;
+    console.log('Express server listening on port ' + server.address().port);
+    io = require('socket.io').listen(server);
+    return io.on('connection', function(socket) {
+      return console.log('a user connected');
+    });
   });
 
 }).call(this);

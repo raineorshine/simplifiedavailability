@@ -1,1 +1,1 @@
-angular.module('simpleAvail', [])
+angular.module('simpleAvail', ['btford.socket-io'])

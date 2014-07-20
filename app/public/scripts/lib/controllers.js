@@ -1,8 +1,14 @@
 (function() {
-  angular.module('simpleAvail').controller('TestCtrl', [
-    '$scope', 'HourSpan', function($scope, HourSpan) {
+  angular.module('simpleAvail').factory('socket', [
+    'socketFactory', function(socketFactory) {
+      return socketFactory();
+    }
+  ]).controller('TestCtrl', [
+    '$scope', 'HourSpan', 'socket', function($scope, HourSpan, socket) {
       $scope.name = 'Raine';
-      return console.log(HourSpan);
+      return socket.on('someEvent', function() {
+        return console.log('an event occurred');
+      });
     }
   ]);
 

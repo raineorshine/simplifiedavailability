@@ -23,7 +23,8 @@
     "jade": "~1",
     "newrelic": "~1",
     "passport": "^0.2.0",
-    "passport-google-oauth": "^0.1.5"
+    "passport-google-oauth": "^0.1.5",
+    "socket.io": "^1.0.6"
   },
   "keywords": [
     "calendar"

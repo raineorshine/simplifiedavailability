@@ -29,6 +29,10 @@ passport.use new GoogleStrategy(
 	done null, profile
 )
 
+# socket
+# http = 	require('http').Server(app)
+# io = 		require('socket.io').listen(http)
+
 # auth routes
 app.get "/auth", passport.authenticate("google",
   session: false
@@ -47,3 +51,7 @@ indexController(app)
 # start server
 server = app.listen config.port, ->
 	console.log 'Express server listening on port ' + server.address().port
+	io = 		require('socket.io').listen(server)
+	io.on 'connection', (socket)->
+	  console.log 'a user connected'
+

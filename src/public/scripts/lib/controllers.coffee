@@ -1,6 +1,12 @@
 angular.module('simpleAvail')
 
-	.controller 'TestCtrl', ['$scope', 'HourSpan', ($scope, HourSpan)->
+	.factory 'socket', ['socketFactory', (socketFactory)->
+	  socketFactory()
+	]
+
+	.controller 'TestCtrl', ['$scope', 'HourSpan', 'socket', ($scope, HourSpan, socket)->
 	  $scope.name = 'Raine'
-	  console.log HourSpan
+
+	  socket.on 'someEvent', ()->
+	  	console.log 'an event occurred'
 	]
