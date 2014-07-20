@@ -14,6 +14,7 @@ https://developers.google.com/google-apps/calendar/v3/reference/events/list
 
 Google API Push Notifications:
 https://developers.google.com/google-apps/calendar/v3/push
+http://stackoverflow.com/questions/19648611/setup-push-notifications-for-google-calendar-api-using-php-client
 
 Using the google-calendar module:
 https://github.com/wanasit/google-calendar/blob/master/example/list-example.js
