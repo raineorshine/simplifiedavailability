@@ -9,7 +9,7 @@
       socket.on('someEvent', function() {
         return console.log('an event occurred');
       });
-      testRef = new Firebase('https://intense-fire-5360.firebaseio.com/test/name');
+      testRef = new Firebase(config.firebaseBase + '/test/name');
       return testRef.on('value', function(snapshot) {
         console.log(snapshot.val());
         return $scope.name = snapshot.val();

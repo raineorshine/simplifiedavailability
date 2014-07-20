@@ -9,7 +9,7 @@ angular.module('simpleAvail')
 		socket.on 'someEvent', ()->
 			console.log 'an event occurred'
 
-		testRef = new Firebase('https://intense-fire-5360.firebaseio.com/test/name')
+		testRef = new Firebase(config.firebaseBase + '/test/name')
 		testRef.on 'value', (snapshot)->
 			console.log snapshot.val()
 			$scope.name = snapshot.val()
