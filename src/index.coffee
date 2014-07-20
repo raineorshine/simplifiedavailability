@@ -10,5 +10,5 @@ app.use express.static(__dirname + '/public')
 app.use bodyParser()
 app.get '/', indexController.index
 
-server = app.listen 9594, ->
+server = app.listen 4372, ->
 	console.log 'Express server listening on port ' + server.address().port

@@ -1,7 +1,7 @@
 (function() {
   module.exports = {
     index: function(req, res) {
-      return res.send('You are here.');
+      return res.render('index');
     }
   };
 

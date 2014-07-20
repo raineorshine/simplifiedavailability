@@ -1,3 +1,3 @@
 module.exports =
 	index: (req, res)->
-		res.send('You are here.')
+		res.render('index')
