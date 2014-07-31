@@ -27,8 +27,6 @@
 
   app.use(express["static"](__dirname + '/public'));
 
-  app.use('/bower', express["static"](__dirname + '/bower_components'));
-
   app.use(bodyParser());
 
   app.use(session({
