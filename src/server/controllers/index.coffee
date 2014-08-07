@@ -1,13 +1,39 @@
 gcal =						require('google-calendar')
+Promise = 				require('bluebird')
+request = 				Promise.promisify(require("request"))
 
 controller = (app)->
+
 	app.get '/', (req, res)->
 		res.render 'index',
 			seed:
 				test: 2
 
+	app.get '/subscribe', (req, res)->
+
+		watchRequest = request
+			url: 'https://www.googleapis.com/calendar/v3/calendars/raineorshine@gmail.com/events/watch'
+			method: 'POST'
+			headers:
+				Authorization: 'Bearer: ya29.WgAZywrBbEsW-SIAAABiE6Pg_7qlHpbEaySVopOkPCrR9iEh0tpms-DlqVg6Xo0Srq6HY2U7t4sZGoyOxW8'
+			json:
+				id: 12345
+				type: 'web_hook'
+				address: 'http://simplifiedavailability.herokuapp.com/calendar-hook'
+
+		watchRequest.then ()->
+			console.log('subscribed')
+			res.send('subscribed')
+
+		watchRequest.catch (error)->
+			console.log('subscribe error', error)
+			res.send('subscribe error')
+
+	app.all '/calendar-hook', (req, res)->
+		console.log('Calendar webhook received')
+		res.send('calendar-hook')
+
 	app.get '/calendars', (req, res)->
-		console.log req.session.access_token
 		if !req.session.access_token then return res.redirect("/auth")
 
 		accessToken = req.session.access_token
@@ -21,6 +47,8 @@ controller = (app)->
 
 		accessToken = req.session.access_token
 		calendarId = req.params.calendarId
+
+		console.log accessToken
 
 		gcal(accessToken).events.list calendarId,
 			maxResults: 10, singleEvents: true, orderBy: 'startTime', timeMin: (new Date).toISOString()#'2014-07-19T00:00:00Z'
