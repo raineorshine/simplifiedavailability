@@ -11,11 +11,13 @@ controller = (app)->
 
 	app.get '/subscribe', (req, res)->
 
+		if !req.session.access_token then return res.redirect("/auth")
+
 		watchRequest = request
 			url: 'https://www.googleapis.com/calendar/v3/calendars/raineorshine@gmail.com/events/watch'
 			method: 'POST'
 			headers:
-				Authorization: 'Bearer: ya29.WgAZywrBbEsW-SIAAABiE6Pg_7qlHpbEaySVopOkPCrR9iEh0tpms-DlqVg6Xo0Srq6HY2U7t4sZGoyOxW8'
+				Authorization: 'Bearer ' + req.session.access_token
 			json:
 				id: 12345
 				type: 'web_hook'

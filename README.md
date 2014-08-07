@@ -1,4 +1,5 @@
 # simplifiedavailability
+test
 
 > Generates a simple text list of your availability from your Google Calendar
 

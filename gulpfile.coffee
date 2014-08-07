@@ -16,6 +16,7 @@ cache =        require('gulp-cache')
 open =         require('gulp-open')
 livereload =   require('gulp-livereload')
 embedlr =      require('gulp-embedlr')
+markdown =     require('gulp-markdown')
 # ecstatic =     require('ecstatic')
 lr =           require('tiny-lr')
 
@@ -25,6 +26,8 @@ config =
 	http_port: 9594
 	# dest_app: './app'
 	livereload_port: '35729'
+
+	readme: 'README.md'
 
 	# views
 	src_views: 'views/**/*'
@@ -133,6 +136,10 @@ gulp.task 'open', ->
 	# 	url: 'http://localhost:' + config.http_port
 	# )
 
+gulp.task 'readme', ->
+	gulp.src(config.readme)
+		.pipe(markdown())
+		.pipe gulp.dest './'
 
 # default task -- run 'gulp' from cli
 gulp.task 'default', (callback) ->
@@ -144,6 +151,7 @@ gulp.task 'default', (callback) ->
 		'styles'
 		'images'
 		'views'
+		'readme'
 	], 'open', callback
 
 	server.listen config.livereload_port
@@ -155,4 +163,6 @@ gulp.task 'default', (callback) ->
 	gulp.watch(config.src_server_coffee, ['serverjs'])._watcher.on 'all', livereload
 	gulp.watch(config.src_views, ['views'])._watcher.on 'all', livereload
 	gulp.watch(config.src_img, ['images'])._watcher.on 'all', livereload
+
+	gulp.watch(config.readme, ['readme'])
 

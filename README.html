@@ -1,0 +1,54 @@
+<h1 id="simplifiedavailability">simplifiedavailability</h1>
+<p>test</p>
+<blockquote>
+<p>Generates a simple text list of your availability from your Google Calendar</p>
+</blockquote>
+<h2 id="development">Development</h2>
+<h3 id="running-the-server">Running the server</h3>
+<pre><code>    $ nodemon -w app app.js
+</code></pre><h3 id="testing-webhooks-on-localhost">Testing webhooks on localhost</h3>
+<pre><code>    $ ultrahook 4372/testhook
+    Authenticated as raine
+    Forwarding activated...
+    http://test.raine.ultrahook.com -&gt; http://localhost:4372/testhook
+
+    $ curl -X POST http://test.raine.ultrahook.com
+    [2014-08-07 07:46:34] POST http://localhost:4372/testhook - 200
+</code></pre><h2 id="known-issues">Known Issues</h2>
+<h3 id="bower-install-doesn-t-work-in-postinstall-script">bower install doesn&#39;t work in postinstall script</h3>
+<p><a href="http://stackoverflow.com/questions/20826580/node-js-heroku-deployment-fails-to-exec-postinstall-script-to-install-bower">http://stackoverflow.com/questions/20826580/node-js-heroku-deployment-fails-to-exec-postinstall-script-to-install-bower</a></p>
+<p>Current hack is to install public/bower_components locally and don&#39;t gitignore them so they get pushed up to the repo.</p>
+<h2 id="resources">Resources</h2>
+<p>Google API Keys:
+<a href="https://console.developers.google.com/project/278678249466/apiui/credential?authuser=0">https://console.developers.google.com/project/278678249466/apiui/credential?authuser=0</a></p>
+<p>Google API Client Library:
+<a href="https://developers.google.com/api-client-library/javascript/features/authentication">https://developers.google.com/api-client-library/javascript/features/authentication</a></p>
+<p>Google Calendar API:
+<a href="https://developers.google.com/google-apps/calendar/v3/reference/">https://developers.google.com/google-apps/calendar/v3/reference/</a>
+<a href="https://developers.google.com/google-apps/calendar/v3/reference/events/list">https://developers.google.com/google-apps/calendar/v3/reference/events/list</a></p>
+<p>Google API Push Notifications:</p>
+<ul>
+<li>requires HTTPS hook</li>
+</ul>
+<p><a href="https://developers.google.com/google-apps/calendar/v3/push">https://developers.google.com/google-apps/calendar/v3/push</a>
+<a href="http://stackoverflow.com/questions/19648611/setup-push-notifications-for-google-calendar-api-using-php-client">http://stackoverflow.com/questions/19648611/setup-push-notifications-for-google-calendar-api-using-php-client</a>
+<a href="https://github.com/Server4001/google-cal-event-push-notifications">https://github.com/Server4001/google-cal-event-push-notifications</a></p>
+<p>Angular + Socket.io
+<a href="https://github.com/btford/angular-socket-io">https://github.com/btford/angular-socket-io</a></p>
+<p>Using the google-calendar module:
+<a href="https://github.com/wanasit/google-calendar/blob/master/example/list-example.js">https://github.com/wanasit/google-calendar/blob/master/example/list-example.js</a></p>
+<h3 id="webhooks">Webhooks</h3>
+<h4 id="testing">Testing</h4>
+<ul>
+<li><a href="http://requestb.in">requestb.in</a></li>
+<li><a href="http://respondto.it/">respondto.it</a></li>
+<li><a href="http://www.ultrahook.com/">ultrahook</a> - Receive webhooks on localhost (no https)</li>
+<li><a href="https://ngrok.com/">ngrok</a> - Introspected tunnels to localhost (with https)</li>
+</ul>
+<h4 id="services">Services</h4>
+<ul>
+<li><a href="https://www.webscript.io/">webscript.tio</a></li>
+<li><a href="http://pusher.com/">pusher.io</a></li>
+<li><a href="http://www.quora.com/What-are-alternatives-to-pusher-com">Alternatives to Pusher</a></li>
+</ul>
+<p>© <a href="https://github.com/metaraine">Raine Lourie</a></p>
