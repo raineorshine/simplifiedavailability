@@ -16,7 +16,7 @@
     "browser": "browserify -s $npm_package_name -o browser.js ."
   },
   "dependencies": {
-    "bluebird": "^2.2.2",
+    "bluebird": "^2",
     "body-parser": "^1",
     "express": "^4",
     "express-session": "^1",
@@ -25,7 +25,7 @@
     "newrelic": "^1",
     "passport": "^0.2",
     "passport-google-oauth": "^0.1",
-    "request": "^2.40.0",
+    "request": "^2",
     "socket.io": "^1"
   },
   "keywords": [
