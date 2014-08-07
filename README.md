@@ -5,6 +5,10 @@
 
 ## Development
 
+### Running the server
+
+		$ nodemon -w app app.js
+
 ### Testing webhooks on localhost
 
 		$ ultrahook 4372/testhook
@@ -36,6 +40,7 @@ https://developers.google.com/google-apps/calendar/v3/reference/events/list
 Google API Push Notifications:
 https://developers.google.com/google-apps/calendar/v3/push
 http://stackoverflow.com/questions/19648611/setup-push-notifications-for-google-calendar-api-using-php-client
+https://github.com/Server4001/google-cal-event-push-notifications
 
 Angular + Socket.io
 https://github.com/btford/angular-socket-io
