@@ -1,11 +1,13 @@
 (function() {
-  var GoogleStrategy, app, bodyParser, config, express, gcal, indexController, passport, server, session;
+  var GoogleStrategy, app, bodyParser, config, express, gcal, indexController, io, passport, server, session, socket;
 
   express = require('express');
 
   session = require('express-session');
 
   bodyParser = require('body-parser');
+
+  socket = require('socket.io');
 
   gcal = require('google-calendar');
 
@@ -27,10 +29,14 @@
 
   app.use(express["static"](__dirname + '/public'));
 
-  app.use(bodyParser());
+  app.use(bodyParser.urlencoded({
+    extended: false
+  }));
 
   app.use(session({
-    secret: config.sessionSecret
+    secret: config.sessionSecret,
+    saveUnitialized: true,
+    resave: true
   }));
 
   app.use(passport.initialize());
@@ -60,12 +66,11 @@
   indexController(app);
 
   server = app.listen(config.port, function() {
-    var io;
-    console.log('Express server listening on port ' + server.address().port);
-    io = require('socket.io').listen(server);
-    return io.on('connection', function(socket) {
-      return console.log('a user connected');
-    });
+    return console.log('Express server listening on port ' + server.address().port);
+  });
+
+  io = socket.listen(server).on('connection', function(socket) {
+    return console.log('a user connected');
   });
 
 }).call(this);

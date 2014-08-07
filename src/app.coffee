@@ -1,6 +1,7 @@
 express =         require('express')
 session = 				require('express-session')
 bodyParser =      require('body-parser')
+socket = 					require('socket.io')
 gcal =            require('google-calendar')
 passport =        require('passport')
 GoogleStrategy =  require('passport-google-oauth').OAuth2Strategy
@@ -13,9 +14,11 @@ app = express()
 app.set 'view engine', 'jade'
 app.set 'views', __dirname + '/views'
 app.use express.static __dirname + '/public'
-# app.use '/bower', express.static __dirname + '/bower_components'
-app.use bodyParser()
-app.use session secret: config.sessionSecret
+app.use bodyParser.urlencoded extended:false
+app.use session
+	secret: config.sessionSecret
+	saveUnitialized: true
+	resave: true
 app.use passport.initialize()
 
 # passport
@@ -28,10 +31,6 @@ passport.use new GoogleStrategy(
 	profile.accessToken = accessToken
 	done null, profile
 )
-
-# socket
-# http = 	require('http').Server(app)
-# io = 		require('socket.io').listen(http)
 
 # auth routes
 app.get "/auth", passport.authenticate("google",
@@ -51,7 +50,8 @@ indexController(app)
 # start server
 server = app.listen config.port, ->
 	console.log 'Express server listening on port ' + server.address().port
-	io = 		require('socket.io').listen(server)
-	io.on 'connection', (socket)->
-	  console.log 'a user connected'
+
+# socket.io server
+io = socket.listen(server).on 'connection', (socket)->
+  console.log 'a user connected'
 
