@@ -14,7 +14,7 @@
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha",
     "browser": "browserify -s $npm_package_name -o browser.js .",
-    "postinstall": "./node_modules/bower/bin/bower install"
+    "postinstall": "node ./node_modules/bower/bin/bower install"
   },
   "dependencies": {
     "body-parser": "^1",
