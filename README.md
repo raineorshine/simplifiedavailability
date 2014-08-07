@@ -2,6 +2,13 @@
 
 > Generates a simple text list of your availability from your Google Calendar
 
+## Known Issues
+
+### bower install doesn't work in postinstall script
+http://stackoverflow.com/questions/20826580/node-js-heroku-deployment-fails-to-exec-postinstall-script-to-install-bower
+
+Current hack is to install public/bower_components locally and don't gitignore them so they get pushed up to the repo.
+
 
 ## Resources
 

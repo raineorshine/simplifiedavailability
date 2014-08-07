@@ -13,12 +13,10 @@
   },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha",
-    "browser": "browserify -s $npm_package_name -o browser.js .",
-    "postinstall": "node ./node_modules/bower/bin/bower install"
+    "browser": "browserify -s $npm_package_name -o browser.js ."
   },
   "dependencies": {
     "body-parser": "^1",
-    "bower": "^1",
     "express": "^4",
     "express-session": "^1",
     "google-calendar": "^1",
