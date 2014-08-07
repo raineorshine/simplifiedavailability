@@ -29,5 +29,16 @@ https://github.com/btford/angular-socket-io
 Using the google-calendar module:
 https://github.com/wanasit/google-calendar/blob/master/example/list-example.js
 
+### Webhooks
+
+#### Testing
+- [requestb.in](http://requestb.in)
+- [respondto.it](http://respondto.it/)
+- [ultrahook](http://www.ultrahook.com/) - Receive webhooks on localhost
+
+#### Services
+- [webscript.tio](https://www.webscript.io/)
+- [pusher.io](http://pusher.com/)
+- [Alternatives to Pusher](http://www.quora.com/What-are-alternatives-to-pusher-com)
 
 © [Raine Lourie](https://github.com/metaraine)
