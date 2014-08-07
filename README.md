@@ -2,6 +2,20 @@
 
 > Generates a simple text list of your availability from your Google Calendar
 
+
+## Development
+
+### Testing webhooks on localhost
+
+		$ ultrahook 4372/testhook
+		Authenticated as raine
+		Forwarding activated...
+		http://test.raine.ultrahook.com -> http://localhost:4372/testhook
+
+		$ curl -X POST http://test.raine.ultrahook.com
+		[2014-08-07 07:46:34] POST http://localhost:4372/testhook - 200
+
+
 ## Known Issues
 
 ### bower install doesn't work in postinstall script
