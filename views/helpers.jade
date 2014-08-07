@@ -1,0 +1,5 @@
+//- Seed the client with a value from the server by stringifying a value, embedding into the page, and parsing it on the client-side.
+//- Default variables to 'seed'
+mixin seed(serverValue, clientValue)
+	script.
+		var #{clientValue || 'seed'} = JSON.parse('!{JSON.stringify(serverValue || seed)}');

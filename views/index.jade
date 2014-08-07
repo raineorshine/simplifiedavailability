@@ -1,0 +1,10 @@
+extends layout
+
+block content
+	.jumbotron
+		input(type='text' ng-model='user.name' placeholder='Enter a name here')
+		h1 Hello {{user.name}}!
+		ul.list-inline
+			li: a.btn.btn-large.btn-primary(href='/auth') Auth
+			li: a.btn.btn-large.btn-secondary(href='/calendars') Calendars
+			li: a.btn.btn-large.btn-secondary(href='/calendars/raineorshine@gmail.com') Events

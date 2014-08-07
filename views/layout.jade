@@ -1,3 +1,5 @@
+include helpers
+
 doctype html
 html(lang='en' ng-app='simpleAvail')
 	head
@@ -10,14 +12,7 @@ html(lang='en' ng-app='simpleAvail')
 		link(rel='stylesheet' href='/bower_components/flat-ui-official/css/flat-ui.css')
 
 	body(ng-controller='TestCtrl')
-		.jumbotron
-			input(type='text' ng-model='name' placeholder='Enter a name here')
-			h1 Hello {{name}}
-			h2 Test: {{test}}
-			ul.list-inline
-				li: a.btn.btn-large.btn-primary(href='/auth') Auth
-				li: a.btn.btn-large.btn-secondary(href='/calendars') Calendars
-				li: a.btn.btn-large.btn-secondary(href='/calendars/raineorshine@gmail.com') Events
+		block content
 
 		//- script(src='//code.jquery.com/jquery-2.1.1.min.js')
 		script(src='/bower_components/jquery/dist/jquery.min.js')
@@ -27,18 +22,17 @@ html(lang='en' ng-app='simpleAvail')
 		script(src='/bower_components/angular/angular.min.js')
 		//- script(src='https://cdn.firebase.com/js/client/1.0.17/firebase.js')
 		script(src='/bower_components/firebase/firebase.js')
-		//- script(src='https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js')
-		script(src='/bower_components/angularfire/angularfire.min.js')
+		//- script(src='https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js')
+		script(src='/bower_components/angularfire/dist/angularfire.min.js')
 
 		script(src='/bower_components/angular-socket-io/socket.min.js')
 
-		script(src='/scripts/lib/config.js')
-		script(src='/scripts/lib/app.js')
-		script(src='/scripts/lib/models/HourSpan.js')
-		script(src='/scripts/lib/models/Block.js')
-		script(src='/scripts/lib/controllers.js')
+		script(src='/scripts/config.js')
+		script(src='/scripts/app.js')
+		script(src='/scripts/models/HourSpan.js')
+		script(src='/scripts/models/Block.js')
+		script(src='/scripts/controllers.js')
 
 		script(src='/socket.io/socket.io.js')
 
-		script.
-			var seed = JSON.parse('!{JSON.stringify(seed)}');
+		+seed

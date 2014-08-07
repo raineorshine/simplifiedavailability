@@ -9,7 +9,7 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "app/public/bower_components",
+    "public/bower_components",
     "test",
     "tests"
   ],
@@ -19,6 +19,6 @@
     "angular": "~1.2.20",
     "jquery": "~2.1.1",
     "angular-socket-io": "https://github.com/btford/angular-socket-io.git",
-    "angularfire": "~0.7.1"
+    "angularfire": "~0.8"
   }
 }
