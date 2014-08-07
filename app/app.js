@@ -35,7 +35,7 @@
 
   app.use(session({
     secret: config.sessionSecret,
-    saveUnitialized: true,
+    saveUninitialized: true,
     resave: true
   }));
 

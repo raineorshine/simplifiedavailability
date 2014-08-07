@@ -17,7 +17,7 @@ app.use express.static __dirname + '/public'
 app.use bodyParser.urlencoded extended:false
 app.use session
 	secret: config.sessionSecret
-	saveUnitialized: true
+	saveUninitialized: true
 	resave: true
 app.use passport.initialize()
 
