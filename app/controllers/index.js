@@ -5,7 +5,7 @@
 
   Promise = require('bluebird');
 
-  request = Promise.promisify(require("request"));
+  request = require('request-promise');
 
   controller = function(app) {
     app.get('/', function(req, res) {
@@ -29,8 +29,8 @@
           address: 'http://simplifiedavailability.herokuapp.com/calendar-hook'
         }
       });
-      watchRequest.then(function() {
-        console.log('subscribed');
+      watchRequest.then(function(content) {
+        console.log('subscribed', content);
         return res.send('subscribed');
       });
       return watchRequest["catch"](function(error) {

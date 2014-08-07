@@ -38,6 +38,9 @@ https://developers.google.com/google-apps/calendar/v3/reference/
 https://developers.google.com/google-apps/calendar/v3/reference/events/list
 
 Google API Push Notifications:
+
+* requires HTTPS hook
+
 https://developers.google.com/google-apps/calendar/v3/push
 http://stackoverflow.com/questions/19648611/setup-push-notifications-for-google-calendar-api-using-php-client
 https://github.com/Server4001/google-cal-event-push-notifications
@@ -53,7 +56,8 @@ https://github.com/wanasit/google-calendar/blob/master/example/list-example.js
 #### Testing
 - [requestb.in](http://requestb.in)
 - [respondto.it](http://respondto.it/)
-- [ultrahook](http://www.ultrahook.com/) - Receive webhooks on localhost
+- [ultrahook](http://www.ultrahook.com/) - Receive webhooks on localhost (no https)
+- [ngrok](https://ngrok.com/) - Introspected tunnels to localhost (with https)
 
 #### Services
 - [webscript.tio](https://www.webscript.io/)

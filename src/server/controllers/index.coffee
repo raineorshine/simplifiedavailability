@@ -1,6 +1,6 @@
-gcal =						require('google-calendar')
-Promise = 				require('bluebird')
-request = 				Promise.promisify(require("request"))
+gcal =						require 'google-calendar'
+Promise = 				require 'bluebird'
+request = 				require 'request-promise'
 
 controller = (app)->
 
@@ -21,8 +21,8 @@ controller = (app)->
 				type: 'web_hook'
 				address: 'http://simplifiedavailability.herokuapp.com/calendar-hook'
 
-		watchRequest.then ()->
-			console.log('subscribed')
+		watchRequest.then (content)->
+			console.log('subscribed', content)
 			res.send('subscribed')
 
 		watchRequest.catch (error)->
