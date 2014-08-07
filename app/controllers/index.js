@@ -26,7 +26,7 @@
         json: {
           id: 12345,
           type: 'web_hook',
-          address: 'http://simplifiedavailability.herokuapp.com/calendar-hook'
+          address: 'https://simplifiedavailability.herokuapp.com/calendar-hook'
         }
       });
       watchRequest.then(function(content) {
