@@ -3,7 +3,7 @@
     '$firebase', function($firebase) {
       return function(username) {
         var ref;
-        ref = new Firebase(config.firebaseBase).child(username);
+        ref = new Firebase(config.firebaseUrl).child(username);
         return $firebase(ref).$asObject();
       };
     }

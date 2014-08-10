@@ -26,8 +26,9 @@
         headers: {
           Authorization: 'Bearer ' + req.session.access_token
         },
-        json: {
-          id: 12345,
+        json: true,
+        body: {
+          id: 1234567,
           type: 'web_hook',
           address: 'https://simplifiedavailability.herokuapp.com/calendar-hook'
         }
@@ -37,7 +38,7 @@
         return res.send('subscribed');
       });
       return watchRequest["catch"](function(error) {
-        console.log('subscribe error', error);
+        console.log('subscribe error', error.error, error.options);
         return res.send('subscribe error');
       });
     });
