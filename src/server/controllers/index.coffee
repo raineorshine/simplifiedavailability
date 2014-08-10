@@ -10,6 +10,15 @@ controller = (app)->
 			seed:
 				test: 2
 
+	app.get '/calendar', (req, res)->
+		res.render 'calendar',
+			title: 'Calendar'
+			# Title should be actual calendar name
+
+	app.get '/home', (req, res)->
+		res.render 'output',
+			tile: 'Simplified Availability'
+
 	app.get '/subscribe', (req, res)->
 
 		if !req.session.access_token then return res.redirect("/auth")

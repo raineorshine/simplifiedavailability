@@ -17,6 +17,16 @@
         }
       });
     });
+    app.get('/calendar', function(req, res) {
+      return res.render('calendar', {
+        title: 'Calendar'
+      });
+    });
+    app.get('/home', function(req, res) {
+      return res.render('output', {
+        tile: 'Simplified Availability'
+      });
+    });
     app.get('/subscribe', function(req, res) {
       var watchRequest;
       if (!req.session.access_token) {
