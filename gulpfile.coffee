@@ -17,7 +17,7 @@ open =         require('gulp-open')
 livereload =   require('gulp-livereload')
 embedlr =      require('gulp-embedlr')
 markdown =     require('gulp-markdown')
-# ecstatic =     require('ecstatic')
+header =     	 require('gulp-header')
 lr =           require('tiny-lr')
 
 server = lr()
@@ -139,6 +139,8 @@ gulp.task 'open', ->
 gulp.task 'readme', ->
 	gulp.src(config.readme)
 		.pipe(markdown())
+		.pipe(header('<meta charset="UTF-8">'))
+		.pipe(header('<link rel="stylesheet" href="markdown.css">'))
 		.pipe gulp.dest './'
 
 # default task -- run 'gulp' from cli

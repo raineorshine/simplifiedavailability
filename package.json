@@ -41,6 +41,7 @@
     "gulp-coffee": "~1",
     "gulp-concat": "~2",
     "gulp-embedlr": "~0.5",
+    "gulp-header": "^1",
     "gulp-imagemin": "~0.1",
     "gulp-inject": "~0.2",
     "gulp-jshint": "~1",
