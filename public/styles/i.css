@@ -76,12 +76,12 @@ input[type="radio"] {
 
 /* ----- Extended ----- */
 ::selection {
-  background: #00a9ff;
+  background: #e74c3c;
   color: white;
 }
 
 ::-moz-selection {
-  background: #00a9ff;
+  background: #e74c3c;
   color: white;
 }
 
@@ -94,8 +94,8 @@ input[type="radio"] {
 }
 
 .error ::-webkit-input-placeholder {
-  color: red;
+  color: #c0392b;
 }
 .error ::-moz-placeholder {
-  color: red;
+  color: #c0392b;
 }

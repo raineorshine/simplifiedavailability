@@ -1,3 +1,4 @@
+//- gets var calendarPage (boolean)
 block variables
 
 doctype html
@@ -10,7 +11,9 @@ html
 		link(rel='stylesheet', href='/styles/i.css')
 
 	body
+
 		header
+
 			h1.logo Simplified Availability
 
 			if calendarPage
@@ -18,18 +21,25 @@ html
 					h2.title Calendar Title
 			
 			.right
+				
 				if calendarPage
 					a(href='#') My Availability
 					select
 						optgroup(label='Time zone')
 							//- should default to user's time zone
 							option(value='pst') Pacific Time
+				
 				else
+					
 					.toggle
 						checkbox.toggle-value(checked)
 						span.pub-priv Public
-							span.url http://example.com
+							span.preview http://example.com
 						span.pub-priv Private
+					
+					a(href='#') Output format
+						span.preview Aug. 22 5-8pm PST
+
 				a(href='#') Settings
 
 
