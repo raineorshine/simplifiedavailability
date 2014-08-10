@@ -1,0 +1,167 @@
+// --------------------------------- utilities ---------------------------------
+
+
+// ----- border shorthand
+// 		--	+border(1px solid #ccc, y n)
+// 		--	+border(1px solid #ccc, y n n y)
+// ---------------------------------------
+=border($style, $sides: n y)
+	@if length($sides) == 2
+		@if nth($sides, 1) != n
+			border-top: $style
+			border-bottom: $style
+		@if nth($sides, 2) != n
+			border-left: $style
+			border-right: $style
+	@else if length($sides) == 4
+		@if nth($sides, 1) != n
+			border-top: $style
+		@if nth($sides, 2) != n
+			border-right: $style
+		@if nth($sides, 3) != n
+			border-bottom: $style
+		@if nth($sides, 4) != n
+			border-left: $style
+	@else
+		@warn "Border shorthand requires a $sides argument of 2 or 4 values."
+
+// ----- size shorthand
+// 		--	+size(10px 20px)
+// ---------------------------------------
+=size($size)
+	@if length($size) == 1
+		height: $size
+		width: $size
+	@else if length($size) == 2
+		height: nth($size, 2)
+		width: nth($size, 1)
+
+// ----- margin padding shorthand
+// ---------------------------------------
+=mp($val)
+	margin: $val
+	padding: $val
+
+// ----- position shorthand
+// 		--	+coords(n 20px 10px 2px)
+// ---------------------------------------
+@function autoOrValue($val)
+	@if $val == a or $val == auto
+		@return auto
+	@else
+		@return $val
+=coords($coordinates: n n n n)
+	$top: nth($coordinates, 1)
+	$right: nth($coordinates, 2)
+	$bottom: nth($coordinates, 3)
+	$left: nth($coordinates, 4)
+	@if $top != n
+		top: autoOrValue($top)
+	@if $right != n
+		right: autoOrValue($right)
+	@if $bottom != n
+		bottom: autoOrValue($bottom)
+	@if $left != n
+		left: autoOrValue($left)
+
+// Absolute
+=absolute($coordinates: 0 n n 0)
+	position: absolute
+	+coords($coordinates)
+
+// Fixed
+=fixed($coordinates: 0 n n 0)
+	position: fixed
+	+coords($coordinates)
+
+// Relative
+=relative($coordinates: 0 n n 0)
+	position: relative
+	+coords($coordinates)
+
+// ----- css triangle
+// 		--	+triangle
+// 		--	+triangle(up)
+// 		--	+triangle(up, 100px, blue)
+// 		--	+triangle(top-right, 100px 80px, $base)
+// ---------------------------------------
+=triangle($direction: right, $size: 0.75em, $color: inherit)
+	display: inline-block
+	height: 0
+	width: 0
+	-webkit-transform: rotate(360deg)
+	$width: null
+	$height: null
+	$border-widths: null
+	@if type-of($size) == list
+		$height: nth($size, 2)
+		$width: nth($size, 1)
+	@else
+		$height: $size
+		$width: $size
+	@if $direction == up or $direction == down
+		$border-widths: $height $width / 2
+	@else if $direction == right or $direction == left
+		$border-widths: $height / 2 $width
+	@else
+		$border-widths: $height / 2 $width / 2
+	border-style: solid
+	border-width: $border-widths
+	@if $direction == up or $direction == down or $direction == right or $direction == left
+		border-color: transparent
+		@if $direction == up
+			border-bottom-color: $color
+			border-top-width: 0
+		@else if $direction == right
+			border-left-color: $color
+			border-right-width: 0
+		@else if $direction == down
+			border-bottom-width: 0
+			border-top-color: $color
+		@else if $direction == left
+			border-left-width: 0
+			border-right-color: $color
+	@else if $direction == top-right or $direction == top-left
+		border-bottom-color: transparent
+		border-top-color: $color
+		@if $direction == top-right
+			border-left-color: transparent
+			border-right-color: $color
+		@else if $direction == top-left
+			border-left-color: $color
+			border-right-color: transparent
+	@else if $direction == bottom-right or $direction == bottom-left
+		border-bottom-color: $color
+		border-top-color: transparent
+		@if $direction == bottom-right
+			border-left-color: transparent
+			border-right-color: $color
+		@else if $direction == bottom-left
+			border-left-color: $color
+			border-right-color: transparent
+
+// ----- border-bottom instead of underline
+// ---------------------------------------
+=link-bb($color: inherit, $style: solid, $width: 1px)
+	border-bottom-style: $style
+	border-bottom-width: $width
+	text-decoration: none
+	@if $color != inherit
+		border-bottom-color: $color
+
+// side-lined
+// todo: learn how this execution works before implementing
+// http://davidtheclark.github.io/scut/side-lined.html
+// https://github.com/davidtheclark/scut/blob/master/src/typography/_side-lined.scss
+
+// ----- vertical block centering
+// 		-- 	(dependent on html child class name)
+// 		--	+center-block-v(".desired-class-name")
+// ---------------------------------------
+=center-block($inner...)
+	display: table
+	$inner: if(length(inner) == 0, ".block-inner", $inner)
+	@each $cell-selector in $inner
+		& > #{$cell-selector}
+			display: table-cell
+			vertical-align: middle
