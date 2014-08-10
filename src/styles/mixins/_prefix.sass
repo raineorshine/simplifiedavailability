@@ -1,0 +1,70 @@
+// --------------------------------- vendor prefixes ---------------------------------
+
+// `selection` must be 2 separate declarations
+=selection($color, $bg)
+	::selection
+		background: $bg
+		color: $color
+	::-moz-selection
+		background: $bg
+		color: $color
+
+=placeholder($colors)
+	::-webkit-input-placeholder
+		color: $colors
+	::-moz-placeholder
+		color: $colors
+
+=user-select($var)
+	-moz-user-select: $var
+	-ms-user-select: $var
+	-webkit-user-select: $var
+	user-select: $var
+
+=appearance($appearance)
+	-moz-appearance: $appearance
+	-webkit-appearance: $appearance
+	appearance: $appearance
+
+=border-radius($radius)
+	-moz-border-radius:	$radius
+	-webkit-border-radius: $radius
+	border-radius:	$radius
+
+=box-shadow($shadow)
+	-webkit-box-shadow: $shadow
+	-moz-box-shadow: $shadow
+	box-shadow: $shadow
+
+=box-sizing($box)
+	-moz-box-sizing: $box
+	-webkit-box-sizing: $box
+	box-sizing: $box
+
+=transform($transform)
+	-moz-transform: $transform
+	-ms-transform: $transform
+	-o-transform: $transform
+	-webkit-transform: $transform
+	transform: $transform
+
+=transition($transition)
+	-moz-transition: $transition
+	-ms-transition: $transition
+	-o-transition: $transition
+	-webkit-transition: $transition
+	transition: $transition
+
+// ----- gradients
+// 		--	+linear-gradient(#333,#aaa)
+// 		--	filter does not compile correctly
+// ---------------------------------------
+=linear-gradient($from-color, $to-color)
+	background-color: $to-color
+	background-image: -webkit-gradient(linear, left top, left bottom, from($from-color), to($to-color))
+	background-image: -webkit-linear-gradient(top, $from-color, $to-color)
+	background-image: -moz-linear-gradient(top, $from-color, $to-color)
+	background-image: -ms-linear-gradient(top, $from-color, $to-color)
+	background-image: -o-linear-gradient(top, $from-color, $to-color)
+	background-image: linear-gradient(top, $from-color, $to-color)
+//	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,Start-colorStr='$from-color', End-colorStr='$to-color')
