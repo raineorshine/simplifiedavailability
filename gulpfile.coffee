@@ -33,7 +33,7 @@ config =
 	src_views: 'views/**/*'
 
 	# styles
-	src_sass: 'src/styles/**/*.sass'
+	src_sass: 'src/styles/*.sass'
 	dest_css: 'public/styles'
 
 	# scripts
