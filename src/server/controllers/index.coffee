@@ -1,6 +1,7 @@
 gcal =						require 'google-calendar'
 Promise = 				require 'bluebird'
 request = 				require 'request-promise'
+uuid = 						require 'node-uuid'
 
 controller = (app)->
 
@@ -21,7 +22,7 @@ controller = (app)->
 				Authorization: 'Bearer ' + req.session.access_token
 			json: true
 			body:
-				id: 1234567
+				id: uuid.v4()
 				type: 'web_hook'
 				address: 'https://simplifiedavailability.herokuapp.com/calendar-hook'
 				# address: 'https://intense-fire-5360.firebaseapp.com'
@@ -35,7 +36,7 @@ controller = (app)->
 			res.send 'subscribe error'
 
 	app.all '/calendar-hook', (req, res)->
-		console.log('Calendar webhook received')
+		console.log('Calendar webhook received', 'HEADERS', req.headers, 'BODY', req.body, 'REQ', req)
 		res.send('calendar-hook')
 
 	app.get '/calendars', (req, res)->

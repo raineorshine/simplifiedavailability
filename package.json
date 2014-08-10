@@ -23,6 +23,7 @@
     "google-calendar": "^1",
     "jade": "^1",
     "newrelic": "^1",
+    "node-uuid": "^1.4.1",
     "passport": "^0.2",
     "passport-google-oauth": "^0.1",
     "request-promise": "0.0.4",
