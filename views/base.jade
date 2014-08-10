@@ -1,23 +1,40 @@
+block variables
+
 doctype html
 html
+
 	head
 		meta(charset='utf-8')
 		title= title || 'Simplified Availability'
 		link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800')
 		link(rel='stylesheet', href='/styles/i.css')
+
 	body
-		block content
-			header
-				h1.logo Simplified Availability
+		header
+			h1.logo Simplified Availability
+
+			if calendarPage
 				.center
 					h2.title Calendar Title
-				.right
+			
+			.right
+				if calendarPage
 					a(href='#') My Availability
-					a(href='#') Settings
 					select
-						optgroup(value='timezone')
+						optgroup(label='Time zone')
+							//- should default to user's time zone
 							option(value='pst') Pacific Time
+				else
+					.toggle
+						checkbox.toggle-value(checked)
+						span.pub-priv Public
+							span.url http://example.com
+						span.pub-priv Private
+				a(href='#') Settings
 
+
+		block content
+					
 
 		//- script(src='//code.jquery.com/jquery-2.1.1.min.js')
 		script(src='/bower_components/jquery/dist/jquery.min.js')
