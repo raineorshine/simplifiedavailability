@@ -42,8 +42,8 @@
   app.use(passport.initialize());
 
   passport.use(new GoogleStrategy({
-    clientID: config.consumerKey,
-    clientSecret: config.consumerSecret,
+    clientID: config.clientId,
+    clientSecret: config.clientSecret,
     callbackURL: "http://localhost:" + config.port + "/auth/callback",
     scope: ['openid', 'email', 'https://www.googleapis.com/auth/calendar']
   }, function(accessToken, refreshToken, profile, done) {

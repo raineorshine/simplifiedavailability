@@ -1,11 +1,13 @@
 (function() {
-  var Promise, controller, gcal, request;
+  var Promise, controller, gcal, request, uuid;
 
   gcal = require('google-calendar');
 
   Promise = require('bluebird');
 
   request = require('request-promise');
+
+  uuid = require('node-uuid');
 
   controller = function(app) {
     app.get('/', function(req, res) {
@@ -26,8 +28,9 @@
         headers: {
           Authorization: 'Bearer ' + req.session.access_token
         },
-        json: {
-          id: 12345,
+        json: true,
+        body: {
+          id: uuid.v4(),
           type: 'web_hook',
           address: 'https://simplifiedavailability.herokuapp.com/calendar-hook'
         }
@@ -37,12 +40,12 @@
         return res.send('subscribed');
       });
       return watchRequest["catch"](function(error) {
-        console.log('subscribe error', error);
+        console.log('subscribe error', error.error, error.options);
         return res.send('subscribe error');
       });
     });
     app.all('/calendar-hook', function(req, res) {
-      console.log('Calendar webhook received');
+      console.log('Calendar webhook received', 'HEADERS', req.headers, 'BODY', req.body, 'REQ', req);
       return res.send('calendar-hook');
     });
     app.get('/calendars', function(req, res) {

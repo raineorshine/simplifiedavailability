@@ -2,7 +2,7 @@ angular.module('simpleAvail')
 
 	.factory 'User', ['$firebase', ($firebase)->
 		(username)->
-			ref = new Firebase(config.firebaseBase).child(username)
+			ref = new Firebase(config.firebaseUrl).child(username)
 			$firebase(ref).$asObject()
 	]
 

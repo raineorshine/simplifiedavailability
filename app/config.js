@@ -4,9 +4,9 @@
   config = {
     port: process.env.PORT || 4372,
     sessionSecret: 'SESSION_SECRET',
-    consumerKey: '278678249466-4iq7macj8kot5ln50qnr4ti4gkhnlvlg.apps.googleusercontent.com',
-    consumerSecret: '6JOLkdolG-AF2dkW0mSBFDhg',
-    firebaseBase: 'https://intense-fire-5360.firebaseio.com'
+    clientId: '701202081631-1tirpvd5kssq0h98bpdrjg6lgdke6h66.apps.googleusercontent.com',
+    clientSecret: '2ySIqGjwhMbeALTOw_KB7meZ',
+    firebaseUrl: 'https://intense-fire-5360.firebaseio.com'
   };
 
   module.exports = config;
