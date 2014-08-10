@@ -19,6 +19,7 @@ embedlr =      require('gulp-embedlr')
 markdown =     require('gulp-markdown')
 header =     	 require('gulp-header')
 lr =           require('tiny-lr')
+notify =       require('gulp-notify')
 
 server = lr()
 
@@ -34,6 +35,7 @@ config =
 
 	# styles
 	src_sass: 'src/styles/*.sass'
+	watch_sass: 'src/styles/**/*.sass'
 	dest_css: 'public/styles'
 
 	# scripts
@@ -57,13 +59,14 @@ config =
 gulp.task 'styles', ->
 	gulp.src(config.src_sass)
 		.pipe(sass(style: 'expanded', noCache: true))
+		.on('error', notify.onError(Error))
 		# .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 7', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
 		.pipe(gulp.dest(config.dest_css))
 		.pipe(rename(suffix: '.min'))
 		.pipe(minifycss())
 		.pipe(gulp.dest(config.dest_css))
 		.pipe livereload(server)
-
+		.pipe(notify('sass compiled & minified'))
 
 # compile server-side js, concat, & minify js
 gulp.task 'clientjs', ->
@@ -159,7 +162,7 @@ gulp.task 'default', (callback) ->
 	server.listen config.livereload_port
 	# http.createServer(ecstatic(root: 'dist/')).listen config.http_port
 
-	gulp.watch(config.src_sass, ['styles'])._watcher.on 'all', livereload
+	gulp.watch(config.watch_sass, ['styles'])._watcher.on 'all', livereload
 	# gulp.watch(config.src_plugins, ['plugins'])._watcher.on 'all', livereload
 	gulp.watch(config.src_client_coffee, ['clientjs'])._watcher.on 'all', livereload
 	gulp.watch(config.src_server_coffee, ['serverjs'])._watcher.on 'all', livereload
