@@ -1,0 +1,81 @@
+// --------------------------------- variables ---------------------------------
+
+
+// ----- fonts
+// ---------------------------------------
+$font: sans-serif
+
+
+// --------------------------------- colors ---------------------------------
+
+// ----- generic
+// ---------------------------------------
+$dark: #222
+$white: #fff
+
+// ----- shades
+// ---------------------------------------
+$light: #ddd
+$light-l: lighten($light, 5%)
+$light-ll: lighten($light, 10%)
+
+// ----- base
+// ---------------------------------------
+$base: #516684
+$base-d: darken($base, 5%)
+$base-l: lighten($base, 5%)
+
+// ----- transparent (overlays)
+// ---------------------------------------
+$dark-t: transparentize($base, 0.1)
+
+// ----- branding
+// 		--	$p -> primary   (brand color)
+// 		--	$s -> secondary (accent, optional)
+// ---------------------------------------
+$p: #00a9ff
+$p-l: lighten($p, 5%)
+$p-ll: lighten($p, 10%)
+$p-lll: lighten($p, 40%)
+$p-d: darken($p, 5%)
+$p-dd: darken($p, 10%)
+$p-ddd: darken($p, 20%)
+
+// ----- more colors
+// 		--	$f -> focus/form
+// 		-- 	$h -> highlight & <mark>
+// ---------------------------------------
+$f: $p
+$h: #ffff9e
+$error: #f00
+$success: #0f0
+
+
+// --------------------------------- numbers ---------------------------------
+
+// ----- global
+// 		--	all sizes > $a come from $a
+// 		-- text aligns to $a grid
+// 		-- components align to $b grid
+// ---------------------------------------
+$a: 4px
+$b: $a*2
+$c: $b*2
+
+// ----- magic (arbitrary) numbers
+// ---------------------------------------
+// $magic10: 10px
+
+// ----- opacity values
+// 		--	used in %faded
+// ---------------------------------------
+$o: .6
+
+// ----- global numbers in use
+// ---------------------------------------
+$contain: $b*80
+$gutter: $b*3
+$sidebar: $b*75
+
+// ----- z-index values
+// ---------------------------------------

@@ -3,7 +3,7 @@ gutil = 			 require('gulp-util')
 coffee = 			 require('gulp-coffee')
 http = 				 require('http')
 runSequence =  require('run-sequence')
-sass = 				 require('gulp-sass')
+sass = 				 require('gulp-ruby-sass')
 autoprefixer = require('gulp-autoprefixer')
 minifycss =    require('gulp-minify-css')
 jshint =       require('gulp-jshint')
@@ -33,8 +33,8 @@ config =
 	src_views: 'views/**/*'
 
 	# styles
-	src_sass: 'src/public/styles/**/*.scss'
-	dest_css: 'app/public/styles'
+	src_sass: 'src/styles/**/*.sass'
+	dest_css: 'public/styles'
 
 	# scripts
 	src_client_coffee: 'src/client/**/*.coffee'
@@ -56,8 +56,8 @@ config =
 # sass task
 gulp.task 'styles', ->
 	gulp.src(config.src_sass)
-		.pipe(sass(style: 'expanded'))
-		.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 7', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+		.pipe(sass(style: 'expanded', noCache: true))
+		# .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 7', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
 		.pipe(gulp.dest(config.dest_css))
 		.pipe(rename(suffix: '.min'))
 		.pipe(minifycss())
@@ -124,7 +124,7 @@ gulp.task 'views', ->
 
 # clean '.dist/'
 gulp.task 'clean', ->
-	gulp.src([config.dest_clientjs, config.dest_serverjs], read: false)
+	gulp.src([config.dest_clientjs, config.dest_serverjs, config.dest_css], read: false)
 	.pipe clean()
 
 
