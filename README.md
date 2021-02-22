@@ -71,4 +71,4 @@ https://github.com/wanasit/google-calendar/blob/master/example/list-example.js
 - [pusher.io](http://pusher.com/)
 - [Alternatives to Pusher](http://www.quora.com/What-are-alternatives-to-pusher-com)
 
-© [Raine Lourie](https://github.com/metaraine)
+© [Raine Revere](https://github.com/raineorshine)

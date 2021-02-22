@@ -1,9 +1,10 @@
 {
   "name": "simplifiedavailability",
   "version": "0.0.0",
-  "authors": [
-    "metaraine <raineorshine@gmail.com>"
-  ],
+  "author": {
+    "name": "Raine Revere",
+    "url": "https://github.com/raineorshine"
+  },
   "private": true,
   "ignore": [
     "**/.*",

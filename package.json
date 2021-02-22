@@ -2,11 +2,10 @@
   "name": "simplifiedavailability",
   "version": "0.0.0",
   "description": "Generates a simple text list of your availability from your Google Calendar",
-  "repository": "metaraine/simplifiedavailability",
+  "repository": "raineorshine/simplifiedavailability",
   "author": {
-    "name": "Raine Lourie",
-    "email": "raine@collegecoding.com",
-    "url": "https://github.com/metaraine"
+    "name": "Raine Revere",
+    "url": "https://github.com/raineorshine"
   },
   "engines": {
     "node": "0.10.x"
