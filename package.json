@@ -1,6 +1,6 @@
 {
   "name": "simplifiedavailability",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Generates a simple text list of your availability from your Google Calendar",
   "repository": "raineorshine/simplifiedavailability",
   "author": {
